@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@100;300;400;500&display=swap');
+/*
+    Fontes utilizadas:
+    font-family: 'Anton', sans-serif;
+    font-family: 'Roboto', sans-serif;
+*/
+body{
+    background-color: #FFFFFF;
+    font-size: 25px;
+}
+.root{
+    width: 375px;
+    height: 100vh;
+    margin:0 auto;
+    background-color: #E5E5E5;
+}
+
+@media screen and (max-width: 375px) {
+    .root{
+        width: 100vw;
+    }
+}
