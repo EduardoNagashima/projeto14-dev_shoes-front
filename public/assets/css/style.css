@@ -1,3 +1,13 @@
+/*--------------  Escondendo o scroll das páginas ---------------------*/
+@-moz-document url-prefix() { /* Disable scrollbar Firefox */
+    html{
+      scrollbar-width: none;
+     
+    }
+}
+::-webkit-scrollbar{
+    display: none;
+}
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@100;300;400;500&display=swap');
 /*
     Fontes utilizadas:
@@ -8,13 +18,13 @@ body{
     background-color: #FFFFFF;
 }
 .root{
-    width: 375px;
+    width: 400px;
     height: 100vh;
     margin:0 auto;
     background-color: #E5E5E5;
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
     .root{
         width: 100vw;
     }
