@@ -44,6 +44,12 @@ const Produtos = () => {
                     <Produto
                         key={key}
                     />)}
+                        id={item._id}
+                        foto={item.foto}
+                        titulo={item.titulo}
+                        valor={item.valor}
+                />)}
+
 
             </ProdutoContainer>
         </Container>
@@ -81,10 +87,17 @@ const FiltroContainer = styled.div`
     height: 55px;
     background-color: #f5f5f5;
     overflow-x: scroll;
+    margin-bottom: 10px;
 `;
 
 const ProdutoContainer = styled.div`
-    
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export default Produtos;
