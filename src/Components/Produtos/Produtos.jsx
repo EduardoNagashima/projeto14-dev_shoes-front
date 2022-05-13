@@ -40,17 +40,14 @@ const Produtos = () => {
                     />)}
             </FiltroContainer>
             <ProdutoContainer>
-                {filtroProdutos.map((item, key) =>
-                    <Produto
-                        key={key}
-                    />)}
-                        id={item._id}
-                        foto={item.foto}
-                        titulo={item.titulo}
-                        valor={item.valor}
+
+                {filtroProdutos.map((item, key) => <Produto
+                    key={key}
+                    id={item._id}
+                    foto={item.foto}
+                    titulo={item.titulo}
+                    valor={item.valor}
                 />)}
-
-
             </ProdutoContainer>
         </Container>
     );
