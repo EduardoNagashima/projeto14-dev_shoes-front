@@ -60,7 +60,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 400px;
-    height: 100vh;
+    min-height: 100vh;
 `;
 
 const Banner = styled.div`
