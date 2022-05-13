@@ -1,5 +1,5 @@
 const Produto = () => {
-    return(
+    return (
         <div>a</div>
     )
 }
