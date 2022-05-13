@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Filtros from './../Filtros/Filtros'
+import Header from './../Header';
 import Produto from './Produto'
 
 const Produtos = () => {
@@ -27,9 +28,7 @@ const Produtos = () => {
 
     return (
         <Container>
-            <Banner>
-                <img src="assets/img/logo.png" alt="banner" />
-            </Banner>
+            <Header />
             <FiltroContainer>
                 {filtros.map((item, key) =>
                     <Filtros
@@ -62,19 +61,6 @@ const Container = styled.div`
     min-height: 100vh;
 `;
 
-const Banner = styled.div`
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url('assets/img/banner.jpg');
-    background-size: cover;
-    filter: brightness(80%);
-    img{
-        width: 170px;
-    }
-`;
 const FiltroContainer = styled.div`
     width: 100%;
     display: flex;

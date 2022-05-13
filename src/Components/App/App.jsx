@@ -2,8 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Produtos from "./../Produtos/Produtos"
-import Footer from "../Footer";
 import UserContext from "./../Contexts/UserContext"
+import Login from "../Login";
+import Footer from "../Footer";
+import Cadastro from "../Cadastro";
 
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
             <UserContext.Provider value={{ token }}>
                 <Routes>
                     <Route path="/" element={<Produtos />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/cadastro" element={<Cadastro />} />
                 </Routes>
                 <Footer />
             </UserContext.Provider>
