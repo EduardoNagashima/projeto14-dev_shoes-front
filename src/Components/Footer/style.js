@@ -28,4 +28,12 @@ export const UserDiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    img{
+        width: 35px;
+        border-radius: 20px;
+    }
+    p{
+        font-size: 14px;
+        font-weight: 700;
+    }
 `

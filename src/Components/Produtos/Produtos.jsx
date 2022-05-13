@@ -40,7 +40,6 @@ const Produtos = () => {
                     />)}
             </FiltroContainer>
             <ProdutoContainer>
-
                 {filtroProdutos.map((item, key) => <Produto
                     key={key}
                     id={item._id}
