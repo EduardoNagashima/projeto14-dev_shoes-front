@@ -6,6 +6,7 @@ import UserContext from "./../Contexts/UserContext"
 import Login from "../Login";
 import Footer from "../Footer";
 import Cadastro from "../Cadastro";
+import Carrinho from "../Carrinho/Carrinho"
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path="/" element={<Produtos />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/cadastro" element={<Cadastro />} />
+                    <Route path="/carrinho" element={<Carrinho />} />
                 </Routes>
                 <Footer />
             </UserContext.Provider>
