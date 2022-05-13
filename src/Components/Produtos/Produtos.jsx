@@ -43,6 +43,10 @@ const Produtos = () => {
                 {filtroProdutos.map((item, key) =>
                     <Produto
                         key={key}
+                        id={item._id}
+                        foto={item.foto}
+                        titulo={item.titulo}
+                        valor={item.valor}
                 />)}
 
             </ProdutoContainer>
@@ -72,10 +76,17 @@ const FiltroContainer = styled.div`
     height: 55px;
     background-color: #fff;
     overflow-x: scroll;
+    margin-bottom: 10px;
 `;
 
 const ProdutoContainer = styled.div`
-    
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 `;
 
 export default Produtos;
