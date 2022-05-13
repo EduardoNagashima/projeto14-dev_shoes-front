@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Produtos from "./../Produtos/Produtos"
 import UserContext from "./../Contexts/UserContext"
@@ -10,15 +10,11 @@ import Cadastro from "../Cadastro";
 
 const App = () => {
 
-    const [token, setToken] = useState(localStorage.getItem("token"));
-
-    useEffect(() => {
-        setToken(localStorage.getItem("token"));
-    })
+    const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem('usuario')));
 
     return (
         <BrowserRouter>
-            <UserContext.Provider value={{ token }}>
+            <UserContext.Provider value={{ usuario, setUsuario }}>
                 <Routes>
                     <Route path="/" element={<Produtos />} />
                     <Route path="/login" element={<Login />} />
