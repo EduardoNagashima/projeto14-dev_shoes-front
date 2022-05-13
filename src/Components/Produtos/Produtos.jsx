@@ -9,7 +9,7 @@ const Produtos = () => {
     const filtros = ["Lançamentos", "Botas", "Casual", "Esporte", "Infantil", "Skatista", "Social"];
     const [filtroEscolhido, setFiltroEscolhido] = useState("Lançamentos");
     const [listarProdutos, setListarProdutos] = useState([]);
-    
+
     useEffect(() => {
         const requisicaoGet = axios.get("http://localhost:5000/produtos");
         requisicaoGet.then(resposta => {
@@ -21,11 +21,11 @@ const Produtos = () => {
         });
     }, []);
 
-    if(listarProdutos){
+    if (listarProdutos) {
         var filtroProdutos = listarProdutos.filter(item => (item.categoria === filtroEscolhido.toLowerCase()));
     }
 
-    return(
+    return (
         <Container>
             <Banner>
                 <img src="assets/img/logo.png" alt="banner" />
@@ -43,19 +43,29 @@ const Produtos = () => {
                 {filtroProdutos.map((item, key) =>
                     <Produto
                         key={key}
+                    />)}
                         id={item._id}
                         foto={item.foto}
                         titulo={item.titulo}
                         valor={item.valor}
                 />)}
 
+
             </ProdutoContainer>
         </Container>
     );
 }
+
 const Container = styled.div`
-    width: 100%;
+    background-color: #DDDDDD;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 100vh;
 `;
+
 const Banner = styled.div`
     width: 100%;
     height: 100px;
@@ -63,18 +73,19 @@ const Banner = styled.div`
     align-items: center;
     justify-content: center;
     background-image: url('assets/img/banner.jpg');
-    background-size: 100% 100px;
+    background-size: cover;
     filter: brightness(80%);
-    
     img{
-        width: 150px;
+        width: 170px;
     }
 `;
 const FiltroContainer = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 55px;
-    background-color: #fff;
+    background-color: #f5f5f5;
     overflow-x: scroll;
     margin-bottom: 10px;
 `;

@@ -1,28 +1,43 @@
 /*--------------  Escondendo o scroll das páginas ---------------------*/
-@-moz-document url-prefix() { /* Disable scrollbar Firefox */
-    html{
-      scrollbar-width: none;
-     
+@-moz-document url-prefix() {
+
+    /* Disable scrollbar Firefox */
+    html {
+        scrollbar-width: none;
+
     }
 }
-::-webkit-scrollbar{
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
     display: none;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@100;300;400;500&display=swap');
+
 /*
     Fontes utilizadas:
     font-family: 'Anton', sans-serif;
-    font-family: 'Roboto', sans-serif;
 */
-body{
+
+body {
     background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    min-height: 100vh;
+    width: 400px;
 }
-.root{
+
+/* .root{
     width: 400px;
     min-height: 100vh;
     margin:0 auto;
     background-color: #E5E5E5;
 }
+ */
 
 @media screen and (max-width: 400px) {
     .root{
