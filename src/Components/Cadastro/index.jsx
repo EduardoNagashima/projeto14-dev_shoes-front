@@ -1,11 +1,10 @@
 import { LoginContainer, MainLogin, FormDiv } from "./style";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../Header";
 import axios from "axios";
 
-export default function Cadastro() {
-
+export default function Cadastro({ setHeaderVisivel }) {
+    setHeaderVisivel(true);
     const navigate = useNavigate('/');
     const [loading, setLoading] = useState(false);
     const [usuario, setUsuario] = useState({
@@ -41,7 +40,6 @@ export default function Cadastro() {
 
     return (
         <LoginContainer>
-            <Header />
             <MainLogin>
                 <h1>Cadastro de novo usuário</h1>
                 <FormDiv onSubmit={login}>

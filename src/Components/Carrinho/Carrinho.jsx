@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ItensCarrinho from "./ItensCarrinho"
-const Carrinho = () => {
+const Carrinho = ({ setHeaderVisivel }) => {
+    setHeaderVisivel(false);
     const teste = [{
 		"_id": "627b1b9d60829b3b313553e8",
 		"titulo": "Tênis Esporte Masculino Header Vermelho",
@@ -138,3 +139,4 @@ const TotalCarrinho = styled.div`
     font-weight: 500;
 `;
 export default Carrinho;
+
