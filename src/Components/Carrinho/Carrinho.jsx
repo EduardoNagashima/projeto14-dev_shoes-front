@@ -1,83 +1,84 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import ItensCarrinho from "./ItensCarrinho"
+import axios from 'axios';
+import { useContext } from 'react';
+import UserContext from "../../Contexts/UserContext";
+
 const Carrinho = ({ setHeaderVisivel }) => {
     setHeaderVisivel(false);
-    const teste = [{
-		"_id": "627b1b9d60829b3b313553e8",
-		"titulo": "Tênis Esporte Masculino Header Vermelho",
-		"foto": "https://static.netshoes.com.br/produtos/tenis-esporte-masculino-header-vermelho/16/0KT-0035-016/0KT-0035-016_zoom1.jpg?ts=1621274599&ims=544x",
-		"descricao": "Tênis Esporte Masculino, confeccionado em material alternativo com costuras reforçadas para maior durabilidade do produto, fechamento em cadarço para melhor ajuste aos pés, solado em borracha antiderrapante proporcionando leveza, conforto e segurança ao caminhar.Estilo e conforto para o dia a dia . Aposte!",
-		"numeracao": [
-			"38",
-			"39",
-			"40",
-			"41",
-			"42"
-		],
-		"categoria": "esporte",
-		"valor": "62.90",
-		"quantidade": 2,
-        "tamanho" : "38"
-	},
-{
-		"_id": "627b1c8e60829b3b313553e9",
-		"titulo": "Tênis Adidas Breaknet Masculino - Branco+Preto",
-		"foto": "https://static.netshoes.com.br/produtos/tenis-adidas-breaknet-masculino/28/NQQ-4378-028/NQQ-4378-028_zoom1.jpg?ts=1649619411&ims=544x",
-		"descricao": "O Tênis Adidas Masculino é o calçado ideal para te acompanhar em todos os momentos. Com design clássico, traz as listras icônicas da marca em um modelo clean que oferece versatilidade ao combinar com diferentes peças. Monte looks autênticos e descolados usando o Tênis Adidas Breaknet. Não deixe de garantir o seu!",
-		"numeracao": [
-			"38",
-			"39",
-			"40",
-			"41",
-			"42"
-		],
-		"categoria": "casual",
-		"valor": "206.99",
-		"quantidade" : 2,
-        "tamanho" : "42"
-	}]
-    const token = null;
+    const { usuario } = useContext(UserContext);
+    const carrinho = JSON.parse(localStorage.getItem('carrinho'));
     const navigate = useNavigate();
-    let totalCarrinho = 0;
-    teste.forEach(item=> totalCarrinho = totalCarrinho + (item.valor * item.quantidade));
-    totalCarrinho = totalCarrinho.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-    
-    function finalizarPedido(){
-        if(!token){
+   
+    function voltarHome() {
+        navigate('/');
+    }
+
+    function finalizarPedido() {
+        if (!usuario) {
             navigate('/login');
             return;
         }
+        const config = { headers: { Authorization: `Bearer ${usuario.token}`}};
+        const requisicaoPost = axios.post("http://localhost:5000/checkout",{
+            compra: carrinho
+        },config);
+        requisicaoPost.then(resposta =>{
+            localStorage.removeItem('carrinho');
+            alert("Compra realizada!");
+            navigate('/');
+        });requisicaoPost.catch(error =>{
+            console.log(error);
+        })
     }
-    function voltarHome(){
-        navigate('/');
+    if (carrinho !== null) {
+        let totalCarrinho = 0;
+        carrinho.forEach(item => totalCarrinho = totalCarrinho + (item.valor * item.quantidade));
+        totalCarrinho = totalCarrinho.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+
+        return (
+            <Container>
+                <Header>
+                    <ion-icon onClick={() => voltarHome()} name="chevron-back-outline"></ion-icon>
+                    <h1>Carrinho</h1>
+                </Header>
+                <ProdutoContainer>
+                    {carrinho.map((item, key) => <ItensCarrinho
+                        key={key}
+                        id={item._id}
+                        foto={item.foto}
+                        titulo={item.titulo}
+                        valor={item.valor}
+                        quantidade={item.quantidade}
+                        tamanho={item.tamanho}
+                    />)}
+                </ProdutoContainer>
+                <hr className="hr" />
+                <TotalCarrinho>Total Carrinho: {totalCarrinho}</TotalCarrinho>
+                <hr className="hr" />
+                <Botao onClick={() => finalizarPedido()}>
+                    Finalizar Pedido
+                </Botao>
+                <Link to={`/`}>Continue comprando</Link>
+            </Container>
+        );
     }
-    return(
-        <Container>
+
+    return (
+        <CarrinhoVazio>
             <Header>
                 <ion-icon onClick={() => voltarHome()} name="chevron-back-outline"></ion-icon>
                 <h1>Carrinho</h1>
             </Header>
-            <ProdutoContainer>
-                {teste.map((item, key) => <ItensCarrinho
-                    key={key}
-                    id={item._id}
-                    foto={item.foto}
-                    titulo={item.titulo}
-                    valor={item.valor}
-                    quantidade={item.quantidade}
-                    tamanho={item.tamanho}
-                />)}
-            </ProdutoContainer>
-            <hr className="hr"/>
-            <TotalCarrinho>Total Carrinho: {totalCarrinho}</TotalCarrinho>
-            <hr className="hr"/>
-            <Botao onClick={() => finalizarPedido()}>
-                Finalizar Pedido
-            </Botao>
-        </Container>
+            <h1 className="titulo-carrinho-vazio">O seu carrinho está vazio</h1>
+            <h2 className="subtitulo-carrinho-vazio">Não sabe o que comprar?</h2>
+            <h2 className="subtitulo-carrinho-vazio">Milhares de produtos esperam por você!</h2>
+        </CarrinhoVazio>
     );
+
+
 }
 const Container = styled.div`
     background-color: #DDDDDD;
@@ -92,6 +93,14 @@ const Container = styled.div`
         width: 100%;
         height: 4px;
         background-color: #fff;
+    }
+
+    a{
+        margin-top: 10px;
+        font-size: 12px;
+        margin-bottom: 100px;
+        text-decoration: none;
+        color: #2424bbfd;
     }
 `;
 const Header = styled.div`
@@ -138,5 +147,22 @@ const TotalCarrinho = styled.div`
     margin-bottom: 4px;
     font-weight: 500;
 `;
-export default Carrinho;
+const CarrinhoVazio = styled.div`
+    background-color: #DDDDDD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 
+    .titulo-carrinho-vazio{
+        font-size: 20px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    .subtitulo-carrinho-vazio{
+        font-size: 14px;
+        color: #585555;
+    }
+`;
+export default Carrinho;

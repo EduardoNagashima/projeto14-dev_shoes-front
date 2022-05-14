@@ -5,7 +5,7 @@ import axios from 'axios';
 import { ProdutoSection, ProdutoHeader, ProdutoMain, DivQuantidade, Button, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
 
 export default function ProdutoSelecionado({ setHeaderVisivel }) {
-    setHeaderVisivel(true);
+    setHeaderVisivel(false);
     const { produtoID } = useParams();
     const [produto, setProdutos] = useState({});
     const [loading, setLoading] = useState(true);
@@ -50,6 +50,7 @@ export default function ProdutoSelecionado({ setHeaderVisivel }) {
         a = JSON.parse(localStorage.getItem('carrinho')) || [];
         a.push(carrinho);
         localStorage.setItem('carrinho', JSON.stringify(a));
+        navigate('/carrinho');
     }
 
     return (
@@ -65,9 +66,9 @@ export default function ProdutoSelecionado({ setHeaderVisivel }) {
                     </DivImg>
                     <h3>Numerações:</h3>
                     <Numeros>
-                        {!loading && produto.numeracao.map((numero) => {
+                        {!loading && produto.numeracao.map((numero,key) => {
                             return (
-                                <Numero selecionado={produtoInfo.selecionado === numero} onClick={() => setProdutoInfo({ ...produtoInfo, selecionado: numero })}>{numero}</Numero>
+                                <Numero key={key} selecionado={produtoInfo.selecionado === numero} onClick={() => setProdutoInfo({ ...produtoInfo, selecionado: numero })}>{numero}</Numero>
                             );
                         })}
                     </Numeros>

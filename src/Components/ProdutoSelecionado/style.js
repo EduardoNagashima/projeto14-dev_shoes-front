@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ProdutoSection = styled.section`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fff;
 `
 
@@ -135,6 +135,7 @@ export const DivQuantidade = styled.div`
 
 export const CompraDiv = styled.div`
     display: flex;
+    margin-bottom: 100px;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;

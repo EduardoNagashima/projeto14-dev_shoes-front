@@ -8,7 +8,7 @@ const ItensCarrinho = ({ id, foto, titulo, valor, quantidade, tamanho }) => {
             <div className="container">
                 <img className={titulo} src={foto} alt="Imagem" />
                 <div className="container-info">
-                    <h2>{titulo}</h2>
+                    <h2>{titulo.substring(0, 35)}...</h2>
                     <h3>Tamanho: {tamanho}</h3>
                     <Quantidade>
                         <span>{quantidade} x <label>{valorConvertido}</label></span>
