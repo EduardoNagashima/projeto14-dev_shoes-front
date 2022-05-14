@@ -49,7 +49,6 @@ export default function ProdutoSelecionado({ setHeaderVisivel }) {
         let a = [];
         a = JSON.parse(localStorage.getItem('carrinho')) || [];
         a.push(carrinho);
-        alert(carrinho);
         localStorage.setItem('carrinho', JSON.stringify(a));
     }
 
