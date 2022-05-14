@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.section`
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: #DDDDDD;
+    
 `
 
 export const MainLogin = styled.main`
@@ -11,6 +12,7 @@ export const MainLogin = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 60px;
     p {
         margin-bottom: 20px;
     }

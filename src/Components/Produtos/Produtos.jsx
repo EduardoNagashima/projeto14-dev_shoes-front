@@ -57,7 +57,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 400px;
-    min-height: 100vh;
+    height: 100%;
 `;
 
 const FiltroContainer = styled.div`
@@ -75,6 +75,7 @@ const ProdutoContainer = styled.div`
     flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 60px;
     a{
         text-decoration: none;
         color: inherit;

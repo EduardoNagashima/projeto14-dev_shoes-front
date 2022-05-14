@@ -38,26 +38,18 @@ export default function ProdutoSelecionado({ setHeaderVisivel }) {
             return;
         }
 
-        const carrinho = [{
+        const carrinho = {
             produtoID: produto._id,
             titulo: produto.titulo,
             tamanho: selecionado,
             valor: produto.valor,
             foto: produto.foto,
             quantidade
-        }]
-
-        const temCarrinho = JSON.parse(localStorage.getItem('carrinho'));
-        console.log(temCarrinho)
-        if (temCarrinho) {
-            const novocarrinho = [...temCarrinho, carrinho]
-            localStorage.setItem("carrinho", JSON.stringify(novocarrinho));
-            navigate("/carrinho");
-        } else {
-            localStorage.setItem("carrinho", JSON.stringify(carrinho));
-            console.log()
-            navigate("/carrinho");
         }
+        let a = [];
+        a = JSON.parse(localStorage.getItem('carrinho')) || [];
+        a.push(carrinho);
+        localStorage.setItem('carrinho', JSON.stringify(a));
     }
 
     return (

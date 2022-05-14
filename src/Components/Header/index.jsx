@@ -21,6 +21,7 @@ export default function Header({ visivel }) {
 
 const Linke = styled(Link)`
     width: 100%;
+    min-width: 400px;
     height: 100px;
     display: flex;
     align-items: center;
