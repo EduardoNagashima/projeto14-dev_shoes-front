@@ -4,6 +4,7 @@ export const FooterContainer = styled.footer`
     position: sticky;
     bottom: 0;
     width: 100%;
+    height: auto;
     min-height: 60px;
     display: flex;
     align-items: center;

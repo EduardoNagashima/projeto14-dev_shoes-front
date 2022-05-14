@@ -1,5 +1,5 @@
 import { FooterDiv, FooterContainer, UserDiv } from "./style";
-import UserContext from "../Contexts/UserContext";
+import UserContext from "../../Contexts/UserContext";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -36,6 +36,7 @@ export default function Footer() {
                     <Link to={"/login"}><ion-icon name="person-outline"></ion-icon></Link>
                     <Link style={{ textDecoration: "none", color: "#000" }} to={"/login"}><p>Login</p></Link>
                 </div>
+                <Link to={"/carrinho"}><ion-icon name="cart-outline"></ion-icon></Link>
             </FooterDiv>
         </FooterContainer>
     )

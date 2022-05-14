@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
-import { ProdutoSection, ProdutoMain, DivQuantidade, Button, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
-import Header from "../Header";
+import { ProdutoSection, ProdutoHeader, ProdutoMain, DivQuantidade, Button, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
 
-export default function ProdutoSelecionado() {
+export default function ProdutoSelecionado({ setHeaderVisivel }) {
+    setHeaderVisivel(true);
     const { produtoID } = useParams();
     const [produto, setProdutos] = useState({});
     const [loading, setLoading] = useState(true);
@@ -58,18 +58,18 @@ export default function ProdutoSelecionado() {
             console.log()
             navigate("/carrinho");
         }
-
-
     }
 
     return (
         <>
-            <Header />
             <ProdutoSection>
                 <ProdutoMain>
+                    <ProdutoHeader>
+                        <Link style={{ textDecoration: "none", color: "#111" }} to={"/"}><ion-icon name="arrow-back-outline"></ion-icon></Link>
+                        <h1>{produto.titulo}</h1>
+                    </ProdutoHeader>
                     <DivImg>
                         <img src={produto.foto} alt="" />
-                        <h1>{produto.titulo}</h1>
                     </DivImg>
                     <h3>Numerações:</h3>
                     <Numeros>

@@ -11,14 +11,21 @@ export const MainCadastro = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     p {
         margin-bottom: 20px;
     }
     h1 {
-        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         font-size: 25px;
         color: #696969;
         font-weight: 700;
+        background-color: #f5f5f5;
+        width: 100%;
+        height: 55px;
     }
 `
 

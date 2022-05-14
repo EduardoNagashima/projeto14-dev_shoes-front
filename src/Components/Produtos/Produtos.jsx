@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Filtros from './../Filtros/Filtros'
-import Header from './../Header';
 import Produto from './Produto'
 
-const Produtos = () => {
+const Produtos = ({ setHeaderVisivel }) => {
+    setHeaderVisivel(true);
     const filtros = ["Lançamentos", "Botas", "Casual", "Esporte", "Infantil", "Skatista", "Social"];
     const [filtroEscolhido, setFiltroEscolhido] = useState("Lançamentos");
     const [listarProdutos, setListarProdutos] = useState([]);
@@ -28,7 +28,6 @@ const Produtos = () => {
 
     return (
         <Container>
-            <Header />
             <FiltroContainer>
                 {filtros.map((item, key) =>
                     <Filtros

@@ -1,12 +1,11 @@
 import { CadastroContainer, MainCadastro, FormDiv } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
-import UserContext from "../Contexts/UserContext";
+import UserContext from "../../Contexts/UserContext";
 import axios from "axios";
 
-import Header from "../Header";
-
-export default function Login() {
+export default function Login({ setHeaderVisivel }) {
+    setHeaderVisivel(true);
     const navigate = useNavigate();
     const { setUsuario } = useContext(UserContext);
     const [usuarioLogin, setUsuarioLogin] = useState({
@@ -45,7 +44,6 @@ export default function Login() {
 
     return (
         <CadastroContainer>
-            <Header />
             <MainCadastro>
                 <h1>Login</h1>
                 <FormDiv onSubmit={login}>

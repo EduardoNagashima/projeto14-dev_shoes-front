@@ -24,6 +24,31 @@ export const ProdutoMain = styled.main`
     }
 `
 
+export const ProdutoHeader = styled.div`
+    display: flex;
+    background-color: #f5f5f5;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    h1 {
+        font-family: 'Anton', sans-serif;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        font-size: 18px;
+        color: #111;
+        font-weight: 400;
+        
+    }
+    ion-icon {
+        padding: 10px;
+        font-size: 30px;
+    }
+`
+
 export const DivImg = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;700&display=swap');
     margin-bottom: 5px;
