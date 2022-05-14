@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-    position: sticky;
+    position: fixed;
     bottom: 0;
-    width: 100%;
+    right: 0;
+    left: 0;
+    max-width: 400px;
+    margin: 0 auto;
     height: auto;
     min-height: 60px;
     display: flex;
