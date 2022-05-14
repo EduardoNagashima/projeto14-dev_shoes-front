@@ -10,6 +10,7 @@ import ProdutoSelecionado from "./../ProdutoSelecionado";
 import Header from "../Header";
 import Carrinho from "../Carrinho/Carrinho";
 
+
 const App = () => {
 
     const [usuario, setUsuario] = useState(JSON.parse(localStorage.getItem('usuario')));
@@ -20,7 +21,7 @@ const App = () => {
             <UserContext.Provider value={{ usuario, setUsuario }}>
                 <Header visivel={headerVisivel} />
                 <Routes>
-                    <Route path="/" element={<Produtos setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
+                   <Route path="/" element={<Produtos setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/login" element={<Login setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/carrinho" element={<Carrinho setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/cadastro" element={<Cadastro setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
