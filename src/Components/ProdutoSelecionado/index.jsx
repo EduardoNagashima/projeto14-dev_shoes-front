@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import { ProdutoSection, ProdutoMain, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
+import { ProdutoSection, ProdutoMain, DivQuantidade, Button, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
 import Header from "../Header";
 
 export default function ProdutoSelecionado() {
     const { produtoID } = useParams();
     const [produto, setProdutos] = useState({});
     const [loading, setLoading] = useState(true);
+    const [quantidade, setQuantidade] = useState(0);
     const [selecionado, setSelecionado] = useState();
 
     useEffect(() => {
@@ -23,6 +24,21 @@ export default function ProdutoSelecionado() {
             })
     }, []);
 
+    function comprar() {
+        if (!quantidade || quantidade <= 0) {
+            alert("Selecione uma quantidade válida")
+            return;
+        }
+        if (!selecionado) {
+            alert("Selecione uma numeração!")
+            return;
+        }
+
+        console.log(quantidade, selecionado, produto.valor)
+
+
+    }
+
     return (
         <>
             <Header />
@@ -32,6 +48,7 @@ export default function ProdutoSelecionado() {
                         <img src={produto.foto} alt="" />
                         <h1>{produto.titulo}</h1>
                     </DivImg>
+                    <h3>Numerações:</h3>
                     <Numeros>
                         {!loading && produto.numeracao.map((numero) => {
                             return (
@@ -44,7 +61,12 @@ export default function ProdutoSelecionado() {
                         <span>{produto.descricao}</span>
                     </Descricao>
                     <CompraDiv>
-                        <button>Comprar</button>
+                        <DivQuantidade>
+                            <ion-icon onClick={() => setQuantidade(quantidade + 1)} name="chevron-up-outline"></ion-icon>
+                            {quantidade}
+                            {!quantidade <= 0 && <ion-icon onClick={() => setQuantidade(quantidade - 1)} name="chevron-down-outline"></ion-icon>}
+                        </DivQuantidade>
+                        <Button disabled={quantidade <= 0} onClick={comprar}>Comprar</Button>
                     </CompraDiv>
                 </ProdutoMain>
             </ProdutoSection>
