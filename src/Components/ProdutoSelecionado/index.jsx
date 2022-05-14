@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { ProdutoSection, ProdutoMain, DivQuantidade, Button, DivImg, Numeros, Numero, CompraDiv, Descricao } from "./style";
@@ -9,9 +9,12 @@ export default function ProdutoSelecionado() {
     const { produtoID } = useParams();
     const [produto, setProdutos] = useState({});
     const [loading, setLoading] = useState(true);
-    const [quantidade, setQuantidade] = useState(0);
-    const [selecionado, setSelecionado] = useState();
+    const [produtoInfo, setProdutoInfo] = useState({
+        quantidade: 0,
+        selecionado: null
+    });
 
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get(`http://localhost:5000/produtos/${produtoID}`)
             .then(res => {
@@ -25,6 +28,7 @@ export default function ProdutoSelecionado() {
     }, []);
 
     function comprar() {
+        const { quantidade, selecionado } = produtoInfo;
         if (!quantidade || quantidade <= 0) {
             alert("Selecione uma quantidade válida")
             return;
@@ -34,7 +38,26 @@ export default function ProdutoSelecionado() {
             return;
         }
 
-        console.log(quantidade, selecionado, produto.valor)
+        const carrinho = [{
+            produtoID: produto._id,
+            titulo: produto.titulo,
+            tamanho: selecionado,
+            valor: produto.valor,
+            foto: produto.foto,
+            quantidade
+        }]
+
+        const temCarrinho = JSON.parse(localStorage.getItem('carrinho'));
+        console.log(temCarrinho)
+        if (temCarrinho) {
+            const novocarrinho = [...temCarrinho, carrinho]
+            localStorage.setItem("carrinho", JSON.stringify(novocarrinho));
+            navigate("/carrinho");
+        } else {
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+            console.log()
+            navigate("/carrinho");
+        }
 
 
     }
@@ -52,7 +75,7 @@ export default function ProdutoSelecionado() {
                     <Numeros>
                         {!loading && produto.numeracao.map((numero) => {
                             return (
-                                <Numero selecionado={selecionado === numero} onClick={() => setSelecionado(numero)}>{numero}</Numero>
+                                <Numero selecionado={produtoInfo.selecionado === numero} onClick={() => setProdutoInfo({ ...produtoInfo, selecionado: numero })}>{numero}</Numero>
                             );
                         })}
                     </Numeros>
@@ -62,11 +85,11 @@ export default function ProdutoSelecionado() {
                     </Descricao>
                     <CompraDiv>
                         <DivQuantidade>
-                            <ion-icon onClick={() => setQuantidade(quantidade + 1)} name="chevron-up-outline"></ion-icon>
-                            {quantidade}
-                            {!quantidade <= 0 && <ion-icon onClick={() => setQuantidade(quantidade - 1)} name="chevron-down-outline"></ion-icon>}
+                            <ion-icon onClick={() => setProdutoInfo({ ...produtoInfo, quantidade: (produtoInfo.quantidade + 1) })} name="chevron-up-outline"></ion-icon>
+                            {produtoInfo.quantidade}
+                            {!produtoInfo.quantidade <= 0 && <ion-icon onClick={() => setProdutoInfo({ ...produtoInfo, quantidade: (produtoInfo.quantidade - 1) })} name="chevron-down-outline"></ion-icon>}
                         </DivQuantidade>
-                        <Button disabled={quantidade <= 0} onClick={comprar}>Comprar</Button>
+                        <Button disabled={produtoInfo.quantidade <= 0} onClick={comprar}>Comprar</Button>
                     </CompraDiv>
                 </ProdutoMain>
             </ProdutoSection>
