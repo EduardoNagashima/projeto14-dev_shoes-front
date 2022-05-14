@@ -18,8 +18,19 @@ export const FooterDiv = styled.div`
     align-items: center;
     justify-content: space-around;
     ion-icon{
+        cursor: pointer;
         font-size: 30px;
         color: #000;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p{
+            font-size: 15px;
+            font-weight: 700;
+        }
     }
 `
 
@@ -30,7 +41,9 @@ export const UserDiv = styled.div`
     align-items: center;
     img{
         width: 35px;
+        height: 35px;
         border-radius: 20px;
+        background-size: cover;
     }
     p{
         font-size: 14px;
