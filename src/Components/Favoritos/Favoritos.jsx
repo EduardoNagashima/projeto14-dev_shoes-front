@@ -27,6 +27,7 @@ const Favoritos = ({ setHeaderVisivel }) => {
 }
 const Container = styled.div`
     width: 100%;
+    min-width: 400px;
     min-height: 100vh;
 `;
 const Aviso = styled.div`

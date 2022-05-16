@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const PerfilSection = styled.section`
+    min-width: 400px;
     width: 100%;
     min-height: 100vh;
     background-color: #DDDDDD;
