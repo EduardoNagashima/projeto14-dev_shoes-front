@@ -32,7 +32,7 @@ export const FooterDiv = styled.div`
         align-items: center;
         justify-content: center;
         p{
-            font-size: 20px;
+            font-size: 15px;
             font-weight: 700;
         }
     }
