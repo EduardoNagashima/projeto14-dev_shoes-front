@@ -12,7 +12,7 @@ export const MainLogin = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     p {
         margin-bottom: 20px;
     }
