@@ -5,7 +5,7 @@ export const FooterContainer = styled.footer`
     bottom: 0;
     right: 0;
     left: 0;
-    width: 100%;
+    width: 400px;
     margin: 0 auto;
     height: auto;
     min-height: 60px;
