@@ -4,7 +4,7 @@ export const LoginContainer = styled.section`
     width: 100%;
     height: 100%;
     background-color: #DDDDDD;
-    
+    min-width: 400px;
 `
 
 export const MainLogin = styled.main`

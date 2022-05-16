@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const CadastroContainer = styled.section`
     width: 100%;
+    min-width: 400px;
     height: 100vh;
     background-color: #DDDDDD;
 `
