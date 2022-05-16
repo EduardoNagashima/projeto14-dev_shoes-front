@@ -36,6 +36,17 @@ export const PerfilMain = styled.section`
     }
 `
 
+export const DivHeader = styled.div`
+    display: flex;
+    background-color: #000;
+    width: 100%;
+    align-items: center;
+    ion-icon{
+        font-size: 30px;
+        color: #fff;
+    }
+`
+
 export const HeaderPerfil = styled.div`
     display: flex;
     align-items: center;

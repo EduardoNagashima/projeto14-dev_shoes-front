@@ -1,8 +1,8 @@
 import axios from "axios";
 
-import { PerfilSection, PerfilMain, HeaderPerfil, ComprasDiv} from "./style";
+import { PerfilSection, PerfilMain, HeaderPerfil, ComprasDiv, DivHeader } from "./style";
 import UserContext from "../../Contexts/UserContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useContext, useState, useEffect } from 'react';
 
 export default function Perfil({ setHeaderVisivel }) {
@@ -38,7 +38,10 @@ export default function Perfil({ setHeaderVisivel }) {
         return (
             <PerfilSection>
                 <PerfilMain>
-                    <h1>Perfil</h1>
+                    <DivHeader>
+                        <Link style={{ textDecoration: "none", color: "#111" }} to={"/"}><ion-icon name="arrow-back-outline"></ion-icon></Link>
+                        <h1>Perfil</h1>
+                    </DivHeader>
                     <HeaderPerfil>
                         <img src={perfilUsuario.foto} alt="" />
                         <h2>{perfilUsuario.nome}</h2>
@@ -57,7 +60,7 @@ export default function Perfil({ setHeaderVisivel }) {
                                             <span>T {compra.tamanho}</span>
                                         </div>
                                     </div>
-                                    <hr className="hr"/>
+                                    <hr className="hr" />
                                 </>
                             )
                         })}
