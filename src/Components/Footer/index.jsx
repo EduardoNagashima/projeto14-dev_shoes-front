@@ -17,10 +17,12 @@ export default function Footer() {
         return (
             <FooterContainer>
                 <FooterDiv>
-                    <UserDiv>
-                        <img src={usuario.foto} alt="foto-de-usuario" />
-                        <p>{usuario.nome}</p>
-                    </UserDiv>
+                    <Link style={{ textDecoration: "none", color: "#000" }} to={"/perfil"}>
+                        <UserDiv>
+                            <img src={usuario.foto} alt="foto-de-usuario" />
+                            <p>{usuario.nome}</p>
+                        </UserDiv>
+                    </Link>
                     <Link to={"/favoritos"}><ion-icon name="heart-outline"></ion-icon></Link>
                     <Link to={"/carrinho"}><ion-icon name="cart-outline"></ion-icon></Link>
                     <ion-icon onClick={logout} name="log-out-outline"></ion-icon>

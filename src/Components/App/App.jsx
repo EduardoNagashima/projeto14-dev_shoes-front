@@ -8,6 +8,7 @@ import Footer from "../Footer";
 import Cadastro from "../Cadastro";
 import ProdutoSelecionado from "./../ProdutoSelecionado";
 import Header from "../Header";
+import Perfil from "../Perfil";
 import Carrinho from "../Carrinho/Carrinho";
 
 
@@ -21,8 +22,9 @@ const App = () => {
             <UserContext.Provider value={{ usuario, setUsuario }}>
                 <Header visivel={headerVisivel} />
                 <Routes>
-                   <Route path="/" element={<Produtos setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
+                    <Route path="/" element={<Produtos setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/login" element={<Login setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
+                    <Route path="/perfil" element={<Perfil setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/carrinho" element={<Carrinho setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/cadastro" element={<Cadastro setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/produtos/:produtoID" element={<ProdutoSelecionado setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
