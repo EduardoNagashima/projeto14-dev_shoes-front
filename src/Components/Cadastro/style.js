@@ -2,9 +2,10 @@ import styled from "styled-components";
 
 export const LoginContainer = styled.section`
     width: 100%;
+    min-width: 400px;
     min-height: 100vh;
     background-color: #DDDDDD;
-
+`
 
 export const MainLogin = styled.main`
     heigth: 100%;
