@@ -13,8 +13,8 @@ const Favoritos = ({ setHeaderVisivel }) => {
     return (
         <Container>
             <Header>
-                <ion-icon onClick={() => voltarHome()} name="chevron-back-outline"></ion-icon>
-                <h1>Favorito</h1>
+                <ion-icon onClick={() => voltarHome()} name="home-outline"></ion-icon>
+                <h1>Favoritos</h1>
             </Header>
             <Aviso>
                 <img src="../assets/img/em_construcao.png" alt="Em construção" />

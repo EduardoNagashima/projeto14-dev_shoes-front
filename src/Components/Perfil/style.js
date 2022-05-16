@@ -13,20 +13,6 @@ export const PerfilMain = styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
-    h1 {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 25px;
-        color: #fff;
-        font-weight: 700;
-        backdrop-filter: blur(2px) brightness(20%);
-        width: 100%;
-        height: 55px;
-        margin-bottom: 10px;
-        letter-spacing: 2px;
-    }
     h3{
         font-size: 18px;
         width: 95%;
@@ -40,12 +26,26 @@ export const PerfilMain = styled.section`
 
 export const DivHeader = styled.div`
     display: flex;
-    background-color: #000;
+    backdrop-filter: blur(2px) brightness(20%);
     width: 100%;
+    height: 40px;
     align-items: center;
+    justify-content: center;
+    position: relative;
+
     ion-icon{
-        font-size: 30px;
+        left: 20px;
+        top: 5px;
+        position: absolute;
+        font-size: 25px;
         color: #fff;
+    }
+
+    h1 {
+        font-size: 25px;
+        color: #fff;
+        font-weight: 500;
+        letter-spacing: 2px;
     }
 `
 

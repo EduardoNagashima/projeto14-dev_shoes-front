@@ -26,7 +26,7 @@ export const ProdutoMain = styled.main`
 
 export const ProdutoHeader = styled.div`
     display: flex;
-    background-color: #f5f5f5;
+    backdrop-filter: blur(2px) brightness(20%);
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -39,13 +39,15 @@ export const ProdutoHeader = styled.div`
         justify-content: center;
         text-align: left;
         font-size: 18px;
-        color: #111;
+        color: #fff;
         font-weight: 400;
         
     }
     ion-icon {
+        filter: drop-shadow(3px 3px 8px #fff);
+        color: #fff;
         padding: 10px;
-        font-size: 30px;
+        font-size: 25px;
     }
 `
 

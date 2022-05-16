@@ -40,7 +40,7 @@ export default function Perfil({ setHeaderVisivel }) {
             <PerfilSection>
                 <PerfilMain>
                     <DivHeader>
-                        <Link style={{ textDecoration: "none", color: "#111" }} to={"/"}><ion-icon name="arrow-back-outline"></ion-icon></Link>
+                        <Link style={{ textDecoration: "none", color: "#111" }} to={"/"}><ion-icon name="home-outline"></ion-icon></Link>
                         <h1>Perfil</h1>
                     </DivHeader>
                     <HeaderPerfil>
@@ -49,7 +49,7 @@ export default function Perfil({ setHeaderVisivel }) {
                     </HeaderPerfil>
                     <h3>Compras</h3>
                     <ComprasDiv>
-                        {compras.reverse().map(e => {
+                        {compras.reverse().map((e, key) => {
                             const compra = e.compra[0]
                             return (
                                 <>
