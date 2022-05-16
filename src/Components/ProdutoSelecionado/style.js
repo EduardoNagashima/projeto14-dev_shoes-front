@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const ProdutoSection = styled.section`
     width: 100%;
+    min-width:400px;
     min-height: 100vh;
     background-color: #fff;
 `
