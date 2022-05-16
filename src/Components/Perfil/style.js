@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const PerfilSection = styled.section`
-    width: 400px;
+    width: 100%;
     min-height: 100vh;
     background-color: #DDDDDD;
 `
@@ -11,6 +11,7 @@ export const PerfilMain = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     h1 {
         display: flex;
         align-items: center;
