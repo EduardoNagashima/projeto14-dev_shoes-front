@@ -23,7 +23,7 @@ export const FooterDiv = styled.div`
     justify-content: space-around;
     ion-icon{
         cursor: pointer;
-        font-size: 30px;
+        font-size: 15px;
         color: #000;
     }
     div{
