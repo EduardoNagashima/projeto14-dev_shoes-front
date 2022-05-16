@@ -29,7 +29,6 @@ body {
     margin: 0 auto;
     height: 100vh;
     width: 400px;
-
 }
 
 @media screen and (max-width: 400px) {

@@ -30,9 +30,11 @@ export default function Perfil({ setHeaderVisivel }) {
         setLoading(false);
     }
 
-    useEffect(() => {
+    // useEffect(() => {
+    //     getPerfil();
+    // },[])
+
         getPerfil();
-    },[])
 
     if (!loading && perfilUsuario && compras) {
         return (
