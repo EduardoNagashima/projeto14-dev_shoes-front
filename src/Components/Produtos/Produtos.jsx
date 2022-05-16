@@ -12,7 +12,7 @@ const Produtos = ({ setHeaderVisivel }) => {
     const [listarProdutos, setListarProdutos] = useState([]);
 
     useEffect(() => {
-        const requisicaoGet = axios.get("http://localhost:5000/produtos");
+        const requisicaoGet = axios.get("https://dev-shoes-back.herokuapp.com/produtos");
         requisicaoGet.then(resposta => {
             const { data } = resposta;
             setListarProdutos(data);

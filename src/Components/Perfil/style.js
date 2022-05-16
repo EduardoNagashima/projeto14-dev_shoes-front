@@ -17,12 +17,13 @@ export const PerfilMain = styled.section`
         justify-content: center;
         text-align: center;
         font-size: 25px;
-        color: #696969;
+        color: #fff;
         font-weight: 700;
-        background-color: #f5f5f5;
+        backdrop-filter: blur(2px) brightness(20%);
         width: 100%;
         height: 55px;
         margin-bottom: 10px;
+        letter-spacing: 2px;
     }
     h3{
         font-size: 18px;
@@ -47,7 +48,7 @@ export const HeaderPerfil = styled.div`
         width: 80px;
         height: 80px;
         object-fit: cover;
-        border-radius: 5px;
+        border-radius: 50%;
         box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     }
     h2{
@@ -61,9 +62,16 @@ export const ComprasDiv = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 50px;
+    .hr{
+        width: 100%;
+        height: 4px;
+        background-color: #fff;
+    }
     img {
         width: 100px;
-        border: 1px solid black;
+        border-radius: 20px;
+        box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.3);
     }
     div{
         display: flex;

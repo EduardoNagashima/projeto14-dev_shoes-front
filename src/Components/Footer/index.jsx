@@ -9,6 +9,7 @@ export default function Footer() {
 
     function logout() {
         setUsuario(null);
+        localStorage.removeItem("carrinho");
         localStorage.removeItem("usuario");
         navigate("/");
     }

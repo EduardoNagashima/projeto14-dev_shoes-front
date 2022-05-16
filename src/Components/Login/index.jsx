@@ -17,7 +17,7 @@ export default function Login({ setHeaderVisivel }) {
         const { email, senha } = usuarioLogin;
         e.preventDefault();
         setLoading(true);
-        axios.post("http://localhost:5000/login", {
+        axios.post("https://dev-shoes-back.herokuapp.com/login", {
             email,
             senha
         })

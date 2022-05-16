@@ -28,7 +28,7 @@ const Linke = styled(Link)`
     justify-content: center;
     background-image: url(${banner});
     background-size: cover;
-    filter: brightness(80%);
+    filter: brightness(85%);
     img{
         width: 170px;
     }

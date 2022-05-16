@@ -25,7 +25,7 @@ export default function Cadastro({ setHeaderVisivel }) {
         e.preventDefault();
         setLoading(true);
         console.log('arrumar')
-        axios.post('http://localhost:5000/cadastro', usuario)
+        axios.post('https://dev-shoes-back.herokuapp.com/cadastro', usuario)
             .then(res => {
                 alert("Conta criada com sucesso!");
                 navigate("/login");

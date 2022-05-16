@@ -16,7 +16,7 @@ export default function ProdutoSelecionado({ setHeaderVisivel }) {
 
     const navigate = useNavigate();
     useEffect(() => {
-        axios.get(`http://localhost:5000/produtos/${produtoID}`)
+        axios.get(`https://dev-shoes-back.herokuapp.com/produtos/${produtoID}`)
             .then(res => {
                 const { data } = res;
                 setProdutos(data);

@@ -22,13 +22,13 @@ const Carrinho = ({ setHeaderVisivel }) => {
             return;
         }
         const config = { headers: { Authorization: `Bearer ${usuario.token}`}};
-        const requisicaoPost = axios.post("http://localhost:5000/checkout",{
+        const requisicaoPost = axios.post("https://dev-shoes-back.herokuapp.com/checkout",{
             compra: carrinho
         },config);
         requisicaoPost.then(resposta =>{
             localStorage.removeItem('carrinho');
             alert("Compra realizada!");
-            navigate('/');
+            navigate('/perfil');
         });requisicaoPost.catch(error =>{
             console.log(error);
         })

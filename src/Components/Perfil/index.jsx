@@ -1,12 +1,12 @@
 import axios from "axios";
 
-import { PerfilSection, PerfilMain, HeaderPerfil, ComprasDiv, Quantidade, ContainerProduto, PrecoProduto } from "./style";
+import { PerfilSection, PerfilMain, HeaderPerfil, ComprasDiv} from "./style";
 import UserContext from "../../Contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from 'react';
 
 export default function Perfil({ setHeaderVisivel }) {
-    setHeaderVisivel(true);
+    setHeaderVisivel(false);
     const { usuario } = useContext(UserContext);
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ export default function Perfil({ setHeaderVisivel }) {
             return;
         }
         const config = { headers: { Authorization: `Bearer ${usuario.token}` } };
-        axios.get("http://localhost:5000/perfil", config)
+        axios.get("https://dev-shoes-back.herokuapp.com/perfil", config)
             .then((res) => {
                 setPerfil(res.data[0]);
                 setCompras(res.data[1].comprasUsuario);
@@ -32,7 +32,7 @@ export default function Perfil({ setHeaderVisivel }) {
 
     useEffect(() => {
         getPerfil();
-    }, [])
+    })
 
     if (!loading && perfilUsuario && compras) {
         return (
@@ -45,9 +45,8 @@ export default function Perfil({ setHeaderVisivel }) {
                     </HeaderPerfil>
                     <h3>Compras</h3>
                     <ComprasDiv>
-                        {compras.map(e => {
+                        {compras.reverse().map(e => {
                             const compra = e.compra[0]
-                            console.log(compra)
                             return (
                                 <>
                                     <div>
@@ -58,6 +57,7 @@ export default function Perfil({ setHeaderVisivel }) {
                                             <span>T {compra.tamanho}</span>
                                         </div>
                                     </div>
+                                    <hr className="hr"/>
                                 </>
                             )
                         })}

@@ -10,6 +10,7 @@ import ProdutoSelecionado from "./../ProdutoSelecionado";
 import Header from "../Header";
 import Perfil from "../Perfil";
 import Carrinho from "../Carrinho/Carrinho";
+import Favoritos from "../Favoritos/Favoritos"
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
                     <Route path="/perfil" element={<Perfil setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/carrinho" element={<Carrinho setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/cadastro" element={<Cadastro setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
+                    <Route path="/favoritos" element={<Favoritos setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                     <Route path="/produtos/:produtoID" element={<ProdutoSelecionado setHeaderVisivel={(visivel) => { setHeaderVisivel(visivel) }} />} />
                 </Routes>
                 <Footer />
