@@ -32,7 +32,7 @@ export default function Perfil({ setHeaderVisivel }) {
 
     useEffect(() => {
         getPerfil();
-    })
+    },[])
 
     if (!loading && perfilUsuario && compras) {
         return (

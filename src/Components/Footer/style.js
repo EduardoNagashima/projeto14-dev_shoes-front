@@ -6,6 +6,7 @@ export const FooterContainer = styled.footer`
     right: 0;
     left: 0;
     max-width: 400px;
+    width: 100%;
     margin: 0 auto;
     height: auto;
     min-height: 60px;
